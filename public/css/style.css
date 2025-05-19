@@ -1,1 +1,51 @@
 /* CSS */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --color-black: #212529;
+  --color-gold: #e3a70c;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+a.text-gold:hover {
+  color: white;
+}
+
+.dropdown-menu[data-bs-popper] {
+  top: 150%;
+  right: -12px;
+  background-color: var(--color-gold);
+  border-radius: 0;
+}
+
+#nav {
+  height: 10vh;
+}
+
+main {
+  min-height: 75vh;
+}
+
+footer {
+  min-height: 15vh;
+  background-color: var(--color-black);
+}

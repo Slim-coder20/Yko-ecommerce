@@ -15,4 +15,14 @@ final class HomeController extends AbstractController
             
         ]);
     }
+    
+    // Route pour le catalogue de produits // 
+   
+     #[Route('/catalogue', name: 'app_catalog', methods: ['GET', 'POST'])]
+    public function catalog(): Response
+    {
+        return $this->render('home/catalog.html.twig', [
+            
+        ]);
+    }
 }
