@@ -19,9 +19,11 @@
 			{{ include('_include/_nav.html.twig') }}
 
 			<main class="col-md-10 mx-auto">
-				<h1 class="text-center py-4 text-dark"> {% block h1 %}{% endblock %}
-
-					</h1>
+				<h1 class="text-center py-4 text-dark"> 
+				<span class="text-gold">&#11834; &#2553;</span>
+				{% block h1 %}{% endblock %}
+				<span class="text-gold">&#2553; &#11834;</span>
+				</h1>
 					{{include ('_include/_flashes.html.twig')}}
 					{% block body %}{% endblock %}
 				</main>
