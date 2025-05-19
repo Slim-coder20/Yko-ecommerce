@@ -66,3 +66,18 @@ footer {
   }
   
 }
+
+.btn-dark:hover{
+  background-color: var(--color-gold);
+  color: black;
+  border-color: var(--color-gold);
+}
+
+.border-2{
+  border-width: 2px;
+}
+.border-gold{
+
+  border-color: var(--color-gold)!;
+}
+
