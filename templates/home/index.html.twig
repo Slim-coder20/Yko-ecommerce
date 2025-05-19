@@ -1,7 +1,16 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}YKO Home{% endblock %}
-
-{% block body %}
-    Accueil
+{% block title %}
+	{{parent()}}
+	| Page d'accueil
 {% endblock %}
+{% block keywords  %}
+	{{parent()}}| Page d'accueil
+{% endblock %}
+{% block description %}
+	{{parent()}}| Page d'accueil
+{% endblock %}
+
+{% block h1 %}Accueil
+{% endblock %}
+
+{% block body %}{% endblock %}
