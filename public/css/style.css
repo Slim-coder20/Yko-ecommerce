@@ -49,3 +49,20 @@ footer {
   min-height: 15vh;
   background-color: var(--color-black);
 }
+
+@media screen and (max-width: 767px){
+  .firstposition{
+      order: -1;
+      padding-bottom: 10px;
+  
+  }
+  
+}
+@media screen and (max-width: 575px){
+  .firstposition{
+      order: -1;
+      padding-bottom: 10px;
+  
+  }
+  
+}
