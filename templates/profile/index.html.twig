@@ -12,18 +12,18 @@
 {% block body %}
 	<div class="bg-white col-md-6 mx-auto p-4 rounded border border-2 border-gold ">
 		<ul class="list-group list-group-horizontal">
-			<li class="list-group-item w-50">Email</li>
-			<li class="list-group-item w-50">{{app.user.email}}</li>
+			<li class="list-group-item w-50 border-gold m-1">Email</li>
+			<li class="list-group-item w-50 border-gold m-1">{{app.user.email}}</li>
 
 		</ul>
 		<ul class="list-group list-group-horizontal">
-			<li class="list-group-item w-50">Nom</li>
-			<li class="list-group-item w-50">{{app.user.firstName}}</li>
+			<li class="list-group-item w-50 border-gold m-1">Nom</li>
+			<li class="list-group-item w-50 border-gold m-1">{{app.user.firstName}}</li>
 
 		</ul>
 		<ul class="list-group list-group-horizontal">
-			<li class="list-group-item w-50">Prénom</li>
-			<li class="list-group-item w-50">{{app.user.lastName}}</li>
+			<li class="list-group-item w-50 border-gold m-1">Prénom</li>
+			<li class="list-group-item w-50 border-gold m-1 ">{{app.user.lastName}}</li>
 
 		</ul>
 		<a class="btn btn-dark w-100 py-2 mt-3" href="{{ path('app_profile_edit')}}">Modifier mon compte
