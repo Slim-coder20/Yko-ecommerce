@@ -74,10 +74,22 @@ footer {
 }
 
 .border-2{
-  border-width: 2px;
+  border-width: 2px!important;
 }
 .border-gold{
 
-  border-color: var(--color-gold)!;
+  border-color: var(--color-gold)!important;
 }
 
+.form-control:focus{
+  color: var(--color-gold);
+  background-color: white;
+  border-color: var(--color-gold);
+  box-shadow: none;
+ 
+}
+.form-control:focus::placeholder{
+  color: var(--color-gold);
+  
+ 
+}
