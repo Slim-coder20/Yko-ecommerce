@@ -25,28 +25,38 @@ class ChangePasswordForm extends AbstractType
                     ],
                 ],
                 'first_options' => [
-                    'constraints' => [
-                        new NotBlank([
-                            'message' => 'Please enter a password',
-                        ]),
-                        new Length([
-                            'min' => 12,
-                            'minMessage' => 'Your password should be at least {{ limit }} characters',
-                            // max length allowed by Symfony for security reasons
-                            'max' => 4096,
-                        ]),
-                        new PasswordStrength(),
-                        new NotCompromisedPassword(),
+                    'label' => 'Mot de passe<span class="text-gold">*</span>',
+                    'label_html' => true,
+                    'attr' => [
+                        'placeholder' => ' entrez votre nouveau mot de passe',
+                        
                     ],
-                    'label' => 'New password',
                 ],
                 'second_options' => [
-                    'label' => 'Repeat Password',
+                    'label' => 'Confirmation du  mot de passe<span class="text-gold">*</span>',
+                    'label_html' => true,
+                    'attr' => [
+                        'placeholder' => ' confirmez votre nouveau mot de passe',
+                        
+                    ],
+
                 ],
-                'invalid_message' => 'The password fields must match.',
+                   'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez saisir un nouveau mot de passe',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 12,
+                    ]),
+                ],
+                'invalid_message' => 'les mots de passe doivent correspondre.',
                 // Instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
+                "required" => false,
             ])
         ;
     }
