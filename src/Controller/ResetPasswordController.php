@@ -32,7 +32,8 @@ class ResetPasswordController extends AbstractController
     }
 
     /**
-     * Display & process form to request a password reset.
+     * cette méthode est appelé lorsque l'utilsateur demande un mot de passe oublié c'est cette m&ethode qui va envoyer le mail
+     * pour la réinitialisation du mot de passe.
      */
     #[Route('', name: 'app_forgot_password_request')]
     public function request(Request $request, MailerInterface $mailer, TranslatorInterface $translator): Response
@@ -54,13 +55,12 @@ class ResetPasswordController extends AbstractController
     }
 
     /**
-     * Confirmation page after a user has requested a password reset.
+     *Cette méthode est applé lorsque l'utilisateur clique sur le lien de rénitialisation de mmot de passe qui la rediréger vers une page qui contient un message d'information qui va lui dire de vérifer sa boite mail //
      */
     #[Route('/check-email', name: 'app_check_email')]
     public function checkEmail(): Response
     {
-        // Generate a fake token if the user does not exist or someone hit this page directly.
-        // This prevents exposing whether or not a user was found with the given email address or not
+      
         if (null === ($resetToken = $this->getTokenObjectFromSession())) {
             $resetToken = $this->resetPasswordHelper->generateFakeResetToken();
         }
@@ -71,7 +71,7 @@ class ResetPasswordController extends AbstractController
     }
 
     /**
-     * Validates and process the reset URL that the user clicked in their email.
+     * Cette méthode est appelé lorsque l'utilisateur clique sur le lien reçu dans sa boite mail de rénitialisation de mot de passe qui la rediréger vers une page qui contient un formulaire pour changer son mot de passe c'est la méthode qui va effectué le changement du mot de passe de l'utilisateur  //
      */
     #[Route('/reset/{token}', name: 'app_reset_password')]
     public function reset(Request $request, UserPasswordHasherInterface $passwordHasher, TranslatorInterface $translator, ?string $token = null): Response
@@ -143,16 +143,14 @@ class ResetPasswordController extends AbstractController
         try {
             $resetToken = $this->resetPasswordHelper->generateResetToken($user);
         } catch (ResetPasswordExceptionInterface $e) {
-            // If you want to tell the user why a reset email was not sent, uncomment
-            // the lines below and change the redirect to 'app_forgot_password_request'.
-            // Caution: This may reveal if a user is registered or not.
+           // Si vous souhaitez indiquer à l'utilisateur pourquoi l'e-mail de réinitialisation n'a pas été envoyé, supprimez le commentaire des lignes ci-dessous et remplacez la redirection par « app_forgot_password_request ».
+            // Attention : cela peut révéler si un utilisateur est enregistré ou non.
             //
             // $this->addFlash('reset_password_error', sprintf(
-            //     '%s - %s',
-            //     $translator->trans(ResetPasswordExceptionInterface::MESSAGE_PROBLEM_HANDLE, [], 'ResetPasswordBundle'),
-            //     $translator->trans($e->getReason(), [], 'ResetPasswordBundle')
+            // '%s - %s',
+            // $translator->trans(ResetPasswordExceptionInterface::MESSAGE_PROBLEM_HANDLE, [], 'ResetPasswordBundle'),
+            // $translator->trans($e->getReason(), [], 'ResetPasswordBundle')
             // ));
-
             return $this->redirectToRoute('app_check_email');
         }
 
