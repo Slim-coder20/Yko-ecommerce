@@ -68,8 +68,9 @@ class RegistrationController extends AbstractController
      */
     #[Route('/activation-compte/{token}', name: 'app_activation_account', methods: ['GET', 'POST'])]
     public function activationAccount($token, UserRepository $userRepository, EntityManagerInterface $entityManager): Response
-    {
-        $user->$userRepository->findOneBy(['token' => $token]);
+    {   
+       
+        $user = $userRepository->findOneBy(['token' => $token]);
         if ($user){
            $user->setToken(null);
            $entityManager->flush();
