@@ -26,6 +26,9 @@ class RegistrationController extends AbstractController
 
             // On hash le mot de passe // On le stocke dans la base de données // 
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
+            
+            // On génère un token pour l'utilisateur pour valider l'activation du compte via un envooie d'un token par mail pour l'utilisateur //
+            $user->setToken();
 
             $entityManager->persist($user);
             $entityManager->flush();
